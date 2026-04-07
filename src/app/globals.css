@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
+
+:root {
+  --gold: #D4A853;
+  --gold-light: #E8C97A;
+  --gold-dim: rgba(212,168,83,0.12);
+  --bg: #0A0A0B;
+  --bg-card: #111113;
+  --bg-card-hover: #18181B;
+  --text: #F5F5F4;
+  --text-dim: #8A8A8D;
+  --text-muted: #9A9A9E;
+  --border: rgba(255,255,255,0.06);
+  --green: #34D399;
+  --green-dim: rgba(52,211,153,0.1);
+  --red: #F87171;
+  --red-dim: rgba(248,113,113,0.1);
+  --blue: #60A5FA;
+  --blue-dim: rgba(96,165,250,0.1);
+  --purple: #A78BFA;
+  --bg-side: #0C0C0E;
+  --bg-hover: #161619;
+  --bg-input: #0E0E11;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
+  --color-bg: var(--bg);
+  --color-bg-card: var(--bg-card);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-border: var(--border);
+  --color-green: var(--green);
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-dim);
+}
+
+select {
+  color-scheme: dark;
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.stat-card, .feat-card, .dstat {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.stat-card:hover, .dstat:hover {
+  border-color: var(--gold-dim) !important;
+  transform: translateY(-3px);
+}
+
+.feat-card:hover {
+  border-color: var(--gold) !important;
+  background: var(--bg-card-hover) !important;
+  transform: translateY(-2px);
+}
+
+.btn-gold:hover {
+  box-shadow: 0 8px 32px var(--gold-dim);
+  transform: translateY(-1px);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+.nav-link {
+  font-size: 14px;
+  color: var(--text-dim);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 4px 0;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.bar-item:hover {
+  background: linear-gradient(to top, var(--gold), var(--gold-light)) !important;
+}
+
+.kb-item:hover {
+  border-color: var(--gold-dim) !important;
+}
