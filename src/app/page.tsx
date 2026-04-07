@@ -329,7 +329,7 @@ function PricingCard({
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="relative overflow-hidden rounded-3xl p-9 border transition-all duration-300"
+      className="relative overflow-hidden rounded-3xl p-5 md:p-7 lg:p-9 border transition-all duration-300"
       style={{
         background: highlighted
           ? `linear-gradient(170deg, #1a1708 0%, ${BG_CARD} 50%)`
@@ -605,8 +605,7 @@ export default function HomePage() {
         className="min-h-[90vh] flex items-center justify-center px-8 py-15 relative z-10"
       >
         <div
-          className="hero-flex max-w-[1140px] w-full mx-auto flex items-center gap-[72px]"
-          style={{ display: 'flex', alignItems: 'center', gap: 72 }}
+          className="hero-flex max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 px-4 md:px-8"
         >
           <div className="flex-1">
             <div
@@ -727,11 +726,11 @@ export default function HomePage() {
 
       {/* Stats */}
       <ScrollSection>
-        <section className="py-5 px-8 relative z-10">
+        <section className="py-5 px-4 md:px-8 relative z-10">
           <div
-            className="max-w-[1140px] mx-auto grid gap-4"
+            className="max-w-6xl mx-auto grid gap-4"
             style={{
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             }}
           >
             <StatCard number="1500" label="Мессеж / өдөр" icon="💬" suffix="+" />
@@ -744,8 +743,8 @@ export default function HomePage() {
 
       {/* Features */}
       <ScrollSection>
-        <section id="features" className="py-15 px-8 relative z-10">
-          <div className="max-w-[1140px] mx-auto">
+        <section id="features" className="py-15 px-4 md:px-8 relative z-10">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span
                 className="text-[11px] font-semibold"
@@ -767,8 +766,12 @@ export default function HomePage() {
               </h2>
             </div>
             <div
-              className="grid gap-4"
-              style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+              className="grid gap-5 md:gap-6"
+              style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                maxWidth: '1140px',
+                margin: '0 auto',
+              }}
             >
               <FeatureCard
                 icon="🤖"
@@ -809,8 +812,8 @@ export default function HomePage() {
 
       {/* How it works */}
       <ScrollSection>
-        <section id="how" className="py-15 px-8 relative z-10">
-          <div className="max-w-[800px] mx-auto">
+        <section id="how" className="py-15 px-4 md:px-8 relative z-10">
+          <div className="max-w-xl mx-auto">
             <div className="text-center mb-14">
               <span
                 className="text-[11px] font-semibold"
@@ -818,7 +821,7 @@ export default function HomePage() {
               >
                 ХЭРХЭН АЖИЛЛАДАГ
               </span>
-              <h2 className="text-[42px] font-bold mt-2-5 tracking-tight">
+              <h2 className="text-3xl md:text-[42px] font-bold mt-2-5 tracking-tight">
                 <span
                   style={{
                     fontFamily: "'Instrument Serif', serif",
@@ -831,7 +834,7 @@ export default function HomePage() {
                 -д бэлэн
               </h2>
             </div>
-            <div className="flex flex-col gap-7 max-w-[520px] mx-auto">
+            <div className="flex flex-col gap-7 max-w-md mx-auto">
               <WorkflowStep
                 num="1"
                 title="Facebook Page холбох"
@@ -865,8 +868,8 @@ export default function HomePage() {
 
       {/* Pricing */}
       <ScrollSection>
-        <section id="pricing" className="py-15 px-8 pb-[100px] relative z-10">
-          <div className="max-w-[1060px] mx-auto">
+        <section id="pricing" className="py-15 px-4 md:px-8 pb-[60px] md:pb-[100px] relative z-10">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <span
                 className="text-[11px] font-semibold"
@@ -889,8 +892,12 @@ export default function HomePage() {
               </h2>
             </div>
             <div
-              className="grid gap-5 items-center"
-              style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+              className="grid gap-5 md:gap-6 items-center justify-center"
+              style={{
+                gridTemplateColumns: 'repeat(3, minmax(280px, 1fr))',
+                maxWidth: '1060px',
+                margin: '0 auto',
+              }}
             >
               <PricingCard
                 name="Starter"
@@ -935,9 +942,9 @@ export default function HomePage() {
 
       {/* CTA */}
       <ScrollSection>
-        <section className="py-10 px-8 relative z-10">
+        <section className="py-10 px-4 md:px-8 relative z-10">
           <div
-            className="max-w-[860px] mx-auto text-center rounded-3xl p-15 relative overflow-hidden border"
+            className="max-w-3xl mx-auto text-center rounded-3xl p-8 md:p-12 lg:p-15 relative overflow-hidden border"
             style={{
               background: `linear-gradient(170deg, rgba(212,168,83,0.07), ${BG_CARD})`,
               borderColor: GOLD_DIM,
@@ -948,7 +955,7 @@ export default function HomePage() {
               style={{ background: GOLD_DIM, filter: 'blur(80px)' }}
             />
             <h2
-              className="text-[38px] font-bold mb-4 relative tracking-tight"
+              className="text-2xl md:text-[38px] font-bold mb-4 relative tracking-tight"
               style={{ letterSpacing: '-0.02em' }}
             >
               Бизнесээ{' '}
