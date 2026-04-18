@@ -3,19 +3,20 @@ import { NextResponse, type NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   try {
     const url = request.nextUrl.clone();
+    const pathname = url.pathname;
 
-    // Protect dashboard routes
-    if (url.pathname.startsWith('/dashboard')) {
-      // Check for auth cookie
-      const supabaseCookie = request.cookies.get('sb-access-token') ||
-                             request.cookies.get('supabase-auth-token') ||
-                             request.cookies.get('__Host-next-auth.session-token');
+    // Dashboard-руу хандах үед auth шалгах
+    if (pathname.startsWith('/dashboard')) {
+      // Supabase auth cookie-үүд шалгах
+      const cookies = request.cookies.getAll();
+      const hasAuth = cookies.some(c =>
+        c.name.includes('auth-token') ||
+        c.name.includes('supabase') ||
+        c.name.includes('sb-')
+      );
 
-      if (!supabaseCookie) {
-        // In development, allow access - auth will be handled by pages
-        if (process.env.NODE_ENV === 'development') {
-          return NextResponse.next();
-        }
+      // Хэрвээ auth cookie байхгүй бол login руу үSend
+      if (!hasAuth) {
         url.pathname = '/auth/login';
         return NextResponse.redirect(url);
       }
@@ -23,14 +24,15 @@ export async function middleware(request: NextRequest) {
 
     return NextResponse.next();
   } catch (error) {
-    // On error, just pass through
     console.error('Middleware error:', error);
+    // Алдаа гарсан үед хуудас үзүүлэх
     return NextResponse.next();
   }
 }
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|api/).*)',
+    '/dashboard/:path*',
+    '/((?!_next/static|_next/image|favicon.ico|public/).*)',
   ],
 };
