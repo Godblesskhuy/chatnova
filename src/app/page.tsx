@@ -391,7 +391,8 @@ function PricingCard({
           </div>
         ))}
       </div>
-      <button
+      <a
+        href="/auth/register"
         className={highlighted ? 'btn-gold' : 'btn-outline'}
         style={{
           width: '100%',
@@ -406,10 +407,13 @@ function PricingCard({
           fontWeight: 600,
           cursor: 'pointer',
           outline: highlighted ? 'none' : `1px solid ${BORDER}`,
+          textDecoration: 'none',
+          display: 'block',
+          textAlign: 'center',
         }}
       >
         Эхлэх →
-      </button>
+      </a>
     </div>
   );
 }
@@ -583,7 +587,8 @@ export default function HomePage() {
           <a href="#pricing" className="nav-link">
             Үнэ
           </a>
-          <button
+          <a
+            href="/auth/register"
             style={{
               padding: '10px 24px',
               borderRadius: 10,
@@ -593,10 +598,11 @@ export default function HomePage() {
               fontSize: 14,
               fontWeight: 600,
               cursor: 'pointer',
+              textDecoration: 'none',
             }}
           >
             Эхлэх →
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -658,7 +664,8 @@ export default function HomePage() {
               className="hero-btns flex gap-3 mb-10"
               style={{ display: 'flex', gap: 12, marginBottom: 40 }}
             >
-              <button
+              <a
+                href="/auth/register"
                 className="btn-gold"
                 style={{
                   padding: '16px 36px',
@@ -670,11 +677,13 @@ export default function HomePage() {
                   fontWeight: 600,
                   cursor: 'pointer',
                   boxShadow: `0 8px 32px ${GOLD_DIM}`,
+                  textDecoration: 'none',
                 }}
               >
                 Үнэгүй эхлэх →
-              </button>
-              <button
+              </a>
+              <a
+                href="/auth/login"
                 className="btn-outline"
                 style={{
                   padding: '16px 28px',
@@ -684,10 +693,11 @@ export default function HomePage() {
                   color: TEXT,
                   fontSize: 15,
                   cursor: 'pointer',
+                  textDecoration: 'none',
                 }}
               >
                 Demo үзэх
-              </button>
+              </a>
             </div>
             <div
               className="hero-tags flex flex-wrap gap-2-5"
@@ -968,7 +978,8 @@ export default function HomePage() {
               Хэдхэн минутад AI чатбот тохируулж, 24/7 автомат борлуулалт
               эхлүүлээорэй.
             </p>
-            <button
+            <a
+              href="/auth/register"
               className="btn-gold relative"
               style={{
                 padding: '18px 48px',
@@ -980,10 +991,11 @@ export default function HomePage() {
                 fontWeight: 700,
                 cursor: 'pointer',
                 boxShadow: `0 12px 40px ${GOLD_DIM}`,
+                textDecoration: 'none',
               }}
             >
               Үнэгүй эхлэх →
-            </button>
+            </a>
           </div>
         </section>
       </ScrollSection>
